@@ -1,6 +1,6 @@
 """ROS-free scheduling: which faults are active when, and how a sample flows through them."""
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Optional, Tuple
 
 from armchaos.faults import Fault, Sample, make_fault
 
@@ -11,6 +11,7 @@ class Step:
     dur: float
     fault: Fault
     active: bool = False
+    expect: Optional[Tuple[str, ...]] = None     # armdoc codes that must fire; () = armdoc must stay quiet; None = no check
 
     @property
     def end(self):
@@ -21,8 +22,21 @@ class Step:
         return f"{self.fault.name}({p})" if p else self.fault.name
 
 
+def parse_expect(value, where="fault"):
+    """`expect:` is a code, a list of codes, or `none` / [] (armdoc must stay quiet). Absent means unchecked."""
+    if isinstance(value, str):
+        value = () if value.strip().lower() == "none" else (value,)
+    if value is None or not isinstance(value, (list, tuple)):
+        raise ValueError(f"{where}: 'expect' must be a code, a list of codes or none")
+    codes = tuple(value)
+    for c in codes:
+        if not (isinstance(c, str) and c.isidentifier() and c.upper() == c):
+            raise ValueError(f"{where}: {c!r} is not an armdoc code (codes look like JOINT_STATES_STALE)")
+    return codes
+
+
 def parse_scenario(data) -> List[Step]:
-    """data: {'faults': [{'at': 5, 'for': 8, 'fault': 'freeze', ...params}]} -> sorted steps."""
+    """data: {'faults': [{'at': 5, 'for': 8, 'fault': 'freeze', 'expect': CODE, ...params}]} -> sorted steps."""
     if not isinstance(data, dict) or not isinstance(data.get("faults"), list) or not data["faults"]:
         raise ValueError("scenario needs a non-empty 'faults:' list")
     steps = []
@@ -34,10 +48,20 @@ def parse_scenario(data) -> List[Step]:
             if k not in e:
                 raise ValueError(f"fault #{i + 1} is missing '{k}'")
         at, dur, name = float(e.pop("at")), float(e.pop("for")), e.pop("fault")
+        expect = parse_expect(e.pop("expect"), f"fault #{i + 1}") if "expect" in e else None
         if at < 0 or dur <= 0:
             raise ValueError(f"fault #{i + 1}: 'at' must be >= 0 and 'for' > 0")
-        steps.append(Step(at, dur, make_fault(name, **e)))
+        steps.append(Step(at, dur, make_fault(name, **e), expect=expect))
     return sorted(steps, key=lambda s: s.at)
+
+
+def over_budget(steps, max_duration, lead=0.0):
+    """Message if the scenario would outlast the --max-duration guard, else None."""
+    total = lead + max(s.end for s in steps)
+    if total > max_duration:
+        return (f"the scenario lasts {total:g}s but --max-duration is {max_duration:g}s; "
+                f"shorten it or raise --max-duration on purpose")
+    return None
 
 
 class Engine:
