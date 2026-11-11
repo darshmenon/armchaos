@@ -1,0 +1,11 @@
+# one fault every 14 s, 8 s each, 6 s to recover in between
+faults:
+  - {at: 4,   for: 8, fault: freeze}
+  - {at: 18,  for: 8, fault: slow, hz: 0.2}
+  - {at: 32,  for: 8, fault: stutter, up: 1.0, down: 4.0}
+  - {at: 46,  for: 8, fault: lag, delay: 3.0}
+  - {at: 60,  for: 8, fault: noise, sigma: 0.02}
+  - {at: 74,  for: 8, fault: nan, joint: j1}
+  - {at: 88,  for: 8, fault: spoof, joint: j0, offset: 4.0}
+  - {at: 102, for: 8, fault: squeeze, joint: j2, effort: 100.0}
+  - {at: 116, for: 8, fault: spike, joint: j1, velocity: 10.0}

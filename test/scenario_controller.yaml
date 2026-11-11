@@ -1,0 +1,2 @@
+faults:
+  - {at: 4, for: 10, fault: deactivate, controller: arm_controller}

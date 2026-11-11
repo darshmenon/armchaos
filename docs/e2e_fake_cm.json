@@ -1,0 +1,278 @@
+{
+ "rows": [
+  {
+   "fault": "deactivate(controller=arm_controller)",
+   "codes": {
+    "CTRL_INACTIVE": 2.0,
+    "NO_ACTIVE_ARM_CTRL": 2.0
+   },
+   "recovered": true
+  }
+ ],
+ "events": [
+  {
+   "t": 4.000327671004925,
+   "wall": 1794410220.1176684,
+   "event": "START",
+   "fault": "deactivate",
+   "label": "deactivate(controller=arm_controller)"
+  },
+  {
+   "t": 14.000430500993389,
+   "wall": 1794410230.1177719,
+   "event": "STOP",
+   "fault": "deactivate",
+   "label": "deactivate(controller=arm_controller)"
+  }
+ ],
+ "reports": [
+  [
+   1794410214.058,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410214.059,
+   ""
+  ],
+  [
+   1794410215.091,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410215.091,
+   ""
+  ],
+  [
+   1794410216.123,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410216.123,
+   ""
+  ],
+  [
+   1794410217.143,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410217.143,
+   ""
+  ],
+  [
+   1794410218.143,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410218.143,
+   ""
+  ],
+  [
+   1794410219.163,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410219.163,
+   ""
+  ],
+  [
+   1794410220.163,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410220.163,
+   ""
+  ],
+  [
+   1794410221.163,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410221.163,
+   ""
+  ],
+  [
+   1794410222.166,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410222.166,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410222.166,
+   ""
+  ],
+  [
+   1794410223.182,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410223.182,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410223.182,
+   ""
+  ],
+  [
+   1794410224.183,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410224.183,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410224.183,
+   ""
+  ],
+  [
+   1794410225.183,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410225.183,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410225.183,
+   ""
+  ],
+  [
+   1794410226.203,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410226.203,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410226.203,
+   ""
+  ],
+  [
+   1794410227.203,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410227.203,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410227.203,
+   ""
+  ],
+  [
+   1794410228.222,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410228.222,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410228.222,
+   ""
+  ],
+  [
+   1794410229.223,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410229.223,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410229.223,
+   ""
+  ],
+  [
+   1794410230.223,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410230.223,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410230.223,
+   ""
+  ],
+  [
+   1794410231.242,
+   "ERROR [CTRL_INACTIVE] controller arm_controller (joint_trajectory_controller/JointTrajectoryController) is inactive, not active"
+  ],
+  [
+   1794410231.242,
+   "ERROR [NO_ACTIVE_ARM_CTRL] no arm controller is active, so nothing can move the arm"
+  ],
+  [
+   1794410231.242,
+   ""
+  ],
+  [
+   1794410232.243,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410232.243,
+   ""
+  ],
+  [
+   1794410233.263,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410233.263,
+   ""
+  ],
+  [
+   1794410234.263,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410234.263,
+   ""
+  ],
+  [
+   1794410235.263,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410235.263,
+   ""
+  ],
+  [
+   1794410236.263,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410236.263,
+   ""
+  ],
+  [
+   1794410237.46,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410237.46,
+   ""
+  ],
+  [
+   1794410238.66,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 2.0s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410238.66,
+   ""
+  ],
+  [
+   1794410239.66,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 3.0s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410239.66,
+   ""
+  ]
+ ]
+}

@@ -1,0 +1,1267 @@
+{
+ "rows": [
+  {
+   "fault": "freeze",
+   "codes": {
+    "JOINT_STATES_STALE": 2.2
+   },
+   "recovered": true
+  },
+  {
+   "fault": "slow(hz=0.2)",
+   "codes": {
+    "JOINT_STATES_STALE": 3.0
+   },
+   "recovered": true
+  },
+  {
+   "fault": "stutter(up=1.0, down=4.0)",
+   "codes": {
+    "JOINT_STATES_STALE": 3.8
+   },
+   "recovered": true
+  },
+  {
+   "fault": "lag(delay=3.0)",
+   "codes": {
+    "JOINT_STATES_STALE": 2.4
+   },
+   "recovered": true
+  },
+  {
+   "fault": "noise(sigma=0.02, seed=0)",
+   "codes": {},
+   "recovered": true
+  },
+  {
+   "fault": "nan(joint=j1)",
+   "codes": {
+    "JOINT_NAN": 0.7
+   },
+   "recovered": true
+  },
+  {
+   "fault": "spoof(joint=j0, offset=4.0)",
+   "codes": {
+    "LIMIT_POS": 0.8
+   },
+   "recovered": true
+  },
+  {
+   "fault": "squeeze(joint=j2, effort=100.0)",
+   "codes": {
+    "EFFORT_SAT": 2.9
+   },
+   "recovered": true
+  },
+  {
+   "fault": "spike(joint=j1, velocity=10.0)",
+   "codes": {
+    "LIMIT_VEL": 0.0
+   },
+   "recovered": true
+  }
+ ],
+ "events": [
+  {
+   "t": 4.000359493002179,
+   "wall": 1794410064.3105047,
+   "event": "START",
+   "fault": "freeze",
+   "label": "freeze"
+  },
+  {
+   "t": 12.00035884299723,
+   "wall": 1794410072.3105044,
+   "event": "STOP",
+   "fault": "freeze",
+   "label": "freeze"
+  },
+  {
+   "t": 18.000308224000037,
+   "wall": 1794410078.3104537,
+   "event": "START",
+   "fault": "slow",
+   "label": "slow(hz=0.2)"
+  },
+  {
+   "t": 26.000278605002677,
+   "wall": 1794410086.310424,
+   "event": "STOP",
+   "fault": "slow",
+   "label": "slow(hz=0.2)"
+  },
+  {
+   "t": 32.00031273800414,
+   "wall": 1794410092.3104582,
+   "event": "START",
+   "fault": "stutter",
+   "label": "stutter(up=1.0, down=4.0)"
+  },
+  {
+   "t": 40.00058699400688,
+   "wall": 1794410100.3107343,
+   "event": "STOP",
+   "fault": "stutter",
+   "label": "stutter(up=1.0, down=4.0)"
+  },
+  {
+   "t": 46.000345631997334,
+   "wall": 1794410106.3104913,
+   "event": "START",
+   "fault": "lag",
+   "label": "lag(delay=3.0)"
+  },
+  {
+   "t": 54.00034109900298,
+   "wall": 1794410114.3104873,
+   "event": "STOP",
+   "fault": "lag",
+   "label": "lag(delay=3.0)"
+  },
+  {
+   "t": 60.000338301004376,
+   "wall": 1794410120.3104842,
+   "event": "START",
+   "fault": "noise",
+   "label": "noise(sigma=0.02, seed=0)"
+  },
+  {
+   "t": 68.00031873901025,
+   "wall": 1794410128.3104649,
+   "event": "STOP",
+   "fault": "noise",
+   "label": "noise(sigma=0.02, seed=0)"
+  },
+  {
+   "t": 74.00036837199877,
+   "wall": 1794410134.3105142,
+   "event": "START",
+   "fault": "nan",
+   "label": "nan(joint=j1)"
+  },
+  {
+   "t": 82.00029743800405,
+   "wall": 1794410142.310443,
+   "event": "STOP",
+   "fault": "nan",
+   "label": "nan(joint=j1)"
+  },
+  {
+   "t": 88.00031863400363,
+   "wall": 1794410148.3104646,
+   "event": "START",
+   "fault": "spoof",
+   "label": "spoof(joint=j0, offset=4.0)"
+  },
+  {
+   "t": 96.00033585900383,
+   "wall": 1794410156.3104815,
+   "event": "STOP",
+   "fault": "spoof",
+   "label": "spoof(joint=j0, offset=4.0)"
+  },
+  {
+   "t": 102.00035805300286,
+   "wall": 1794410162.3105044,
+   "event": "START",
+   "fault": "squeeze",
+   "label": "squeeze(joint=j2, effort=100.0)"
+  },
+  {
+   "t": 110.0003069969971,
+   "wall": 1794410170.3104527,
+   "event": "STOP",
+   "fault": "squeeze",
+   "label": "squeeze(joint=j2, effort=100.0)"
+  },
+  {
+   "t": 116.00031635799678,
+   "wall": 1794410176.3104622,
+   "event": "START",
+   "fault": "spike",
+   "label": "spike(joint=j1, velocity=10.0)"
+  },
+  {
+   "t": 124.00028725400625,
+   "wall": 1794410184.3104334,
+   "event": "STOP",
+   "fault": "spike",
+   "label": "spike(joint=j1, velocity=10.0)"
+  }
+ ],
+ "reports": [
+  [
+   1794410058.301,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410058.301,
+   ""
+  ],
+  [
+   1794410059.334,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410059.334,
+   ""
+  ],
+  [
+   1794410060.337,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410060.337,
+   ""
+  ],
+  [
+   1794410061.357,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410061.357,
+   ""
+  ],
+  [
+   1794410062.357,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410062.357,
+   ""
+  ],
+  [
+   1794410063.376,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410063.376,
+   ""
+  ],
+  [
+   1794410064.502,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410064.502,
+   ""
+  ],
+  [
+   1794410065.502,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410065.502,
+   ""
+  ],
+  [
+   1794410066.502,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 2.2s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410066.502,
+   ""
+  ],
+  [
+   1794410067.502,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 3.2s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410067.502,
+   ""
+  ],
+  [
+   1794410068.503,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 4.2s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410068.503,
+   ""
+  ],
+  [
+   1794410069.702,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 5.4s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410069.702,
+   ""
+  ],
+  [
+   1794410070.902,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 6.6s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410070.902,
+   ""
+  ],
+  [
+   1794410071.902,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 7.6s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410071.902,
+   ""
+  ],
+  [
+   1794410072.917,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410072.917,
+   ""
+  ],
+  [
+   1794410073.937,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410073.937,
+   ""
+  ],
+  [
+   1794410074.937,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410074.937,
+   ""
+  ],
+  [
+   1794410075.957,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410075.957,
+   ""
+  ],
+  [
+   1794410076.957,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410076.957,
+   ""
+  ],
+  [
+   1794410077.977,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410077.977,
+   ""
+  ],
+  [
+   1794410079.118,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410079.118,
+   ""
+  ],
+  [
+   1794410080.301,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410080.301,
+   ""
+  ],
+  [
+   1794410081.301,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 3.0s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410081.301,
+   ""
+  ],
+  [
+   1794410082.301,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 4.0s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410082.301,
+   ""
+  ],
+  [
+   1794410083.302,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 5.0s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410083.302,
+   ""
+  ],
+  [
+   1794410084.502,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410084.502,
+   ""
+  ],
+  [
+   1794410085.702,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 2.4s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410085.702,
+   ""
+  ],
+  [
+   1794410086.717,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410086.717,
+   ""
+  ],
+  [
+   1794410087.737,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410087.737,
+   ""
+  ],
+  [
+   1794410088.737,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410088.737,
+   ""
+  ],
+  [
+   1794410089.757,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410089.757,
+   ""
+  ],
+  [
+   1794410090.757,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410090.757,
+   ""
+  ],
+  [
+   1794410091.777,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410091.777,
+   ""
+  ],
+  [
+   1794410092.777,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410092.777,
+   ""
+  ],
+  [
+   1794410093.903,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410093.903,
+   ""
+  ],
+  [
+   1794410095.102,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410095.102,
+   ""
+  ],
+  [
+   1794410096.103,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 2.8s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410096.103,
+   ""
+  ],
+  [
+   1794410097.301,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 4.0s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410097.301,
+   ""
+  ],
+  [
+   1794410098.301,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410098.301,
+   ""
+  ],
+  [
+   1794410099.301,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410099.301,
+   ""
+  ],
+  [
+   1794410100.302,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 2.0s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410100.302,
+   ""
+  ],
+  [
+   1794410101.317,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410101.317,
+   ""
+  ],
+  [
+   1794410102.317,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410102.317,
+   ""
+  ],
+  [
+   1794410103.317,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410103.317,
+   ""
+  ],
+  [
+   1794410104.317,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410104.317,
+   ""
+  ],
+  [
+   1794410105.337,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410105.337,
+   ""
+  ],
+  [
+   1794410106.501,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410106.501,
+   ""
+  ],
+  [
+   1794410107.502,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410107.502,
+   ""
+  ],
+  [
+   1794410108.702,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 2.4s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410108.702,
+   ""
+  ],
+  [
+   1794410109.721,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410109.721,
+   ""
+  ],
+  [
+   1794410110.721,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410110.721,
+   ""
+  ],
+  [
+   1794410111.721,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410111.721,
+   ""
+  ],
+  [
+   1794410112.741,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410112.741,
+   ""
+  ],
+  [
+   1794410113.761,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410113.761,
+   ""
+  ],
+  [
+   1794410114.777,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410114.777,
+   ""
+  ],
+  [
+   1794410115.777,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410115.777,
+   ""
+  ],
+  [
+   1794410116.797,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410116.797,
+   ""
+  ],
+  [
+   1794410117.817,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410117.817,
+   ""
+  ],
+  [
+   1794410118.837,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410118.837,
+   ""
+  ],
+  [
+   1794410119.857,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410119.857,
+   ""
+  ],
+  [
+   1794410120.857,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410120.857,
+   ""
+  ],
+  [
+   1794410121.857,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410121.857,
+   ""
+  ],
+  [
+   1794410122.877,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410122.877,
+   ""
+  ],
+  [
+   1794410123.897,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410123.897,
+   ""
+  ],
+  [
+   1794410124.897,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410124.897,
+   ""
+  ],
+  [
+   1794410125.897,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410125.897,
+   ""
+  ],
+  [
+   1794410126.917,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410126.917,
+   ""
+  ],
+  [
+   1794410127.937,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410127.937,
+   ""
+  ],
+  [
+   1794410128.957,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410128.957,
+   ""
+  ],
+  [
+   1794410129.957,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410129.957,
+   ""
+  ],
+  [
+   1794410130.957,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410130.957,
+   ""
+  ],
+  [
+   1794410131.957,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410131.957,
+   ""
+  ],
+  [
+   1794410132.977,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410132.977,
+   ""
+  ],
+  [
+   1794410133.997,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410133.997,
+   ""
+  ],
+  [
+   1794410135.017,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410135.017,
+   ""
+  ],
+  [
+   1794410136.017,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410136.017,
+   ""
+  ],
+  [
+   1794410137.037,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410137.037,
+   ""
+  ],
+  [
+   1794410138.037,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410138.037,
+   ""
+  ],
+  [
+   1794410139.037,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410139.037,
+   ""
+  ],
+  [
+   1794410140.037,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410140.037,
+   ""
+  ],
+  [
+   1794410141.057,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410141.057,
+   ""
+  ],
+  [
+   1794410142.057,
+   "ERROR [JOINT_NAN] j1 position is NaN/inf (diverged controller or bad state)"
+  ],
+  [
+   1794410142.057,
+   ""
+  ],
+  [
+   1794410143.077,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410143.077,
+   ""
+  ],
+  [
+   1794410144.077,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410144.077,
+   ""
+  ],
+  [
+   1794410145.077,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410145.077,
+   ""
+  ],
+  [
+   1794410146.077,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410146.077,
+   ""
+  ],
+  [
+   1794410147.097,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410147.097,
+   ""
+  ],
+  [
+   1794410148.097,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410148.097,
+   ""
+  ],
+  [
+   1794410149.097,
+   "ERROR [LIMIT_POS] j0 at 3.006 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410149.097,
+   ""
+  ],
+  [
+   1794410150.097,
+   "ERROR [LIMIT_POS] j0 at 3.553 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410150.097,
+   ""
+  ],
+  [
+   1794410151.117,
+   "ERROR [LIMIT_POS] j0 at 4.528 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410151.117,
+   ""
+  ],
+  [
+   1794410152.117,
+   "ERROR [LIMIT_POS] j0 at 5.000 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410152.117,
+   ""
+  ],
+  [
+   1794410153.137,
+   "ERROR [LIMIT_POS] j0 at 4.535 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410153.137,
+   ""
+  ],
+  [
+   1794410154.137,
+   "ERROR [LIMIT_POS] j0 at 3.578 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410154.137,
+   ""
+  ],
+  [
+   1794410155.137,
+   "ERROR [LIMIT_POS] j0 at 3.009 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410155.137,
+   ""
+  ],
+  [
+   1794410156.157,
+   "ERROR [LIMIT_POS] j0 at 3.366 is outside its limits [-3.000, 3.000]"
+  ],
+  [
+   1794410156.157,
+   ""
+  ],
+  [
+   1794410157.157,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410157.157,
+   ""
+  ],
+  [
+   1794410158.177,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410158.177,
+   ""
+  ],
+  [
+   1794410159.178,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410159.178,
+   ""
+  ],
+  [
+   1794410160.197,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410160.197,
+   ""
+  ],
+  [
+   1794410161.197,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410161.197,
+   ""
+  ],
+  [
+   1794410162.217,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410162.217,
+   ""
+  ],
+  [
+   1794410163.217,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410163.217,
+   ""
+  ],
+  [
+   1794410164.217,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410164.217,
+   ""
+  ],
+  [
+   1794410165.237,
+   "WARN  [EFFORT_SAT] j2 pinned at 100.0 of 50.0 N*m for 2s (blocked by contact, or payload too heavy)"
+  ],
+  [
+   1794410165.237,
+   ""
+  ],
+  [
+   1794410166.257,
+   "WARN  [EFFORT_SAT] j2 pinned at 100.0 of 50.0 N*m for 3s (blocked by contact, or payload too heavy)"
+  ],
+  [
+   1794410166.257,
+   ""
+  ],
+  [
+   1794410167.257,
+   "WARN  [EFFORT_SAT] j2 pinned at 100.0 of 50.0 N*m for 4s (blocked by contact, or payload too heavy)"
+  ],
+  [
+   1794410167.257,
+   ""
+  ],
+  [
+   1794410168.257,
+   "WARN  [EFFORT_SAT] j2 pinned at 100.0 of 50.0 N*m for 5s (blocked by contact, or payload too heavy)"
+  ],
+  [
+   1794410168.257,
+   ""
+  ],
+  [
+   1794410169.277,
+   "WARN  [EFFORT_SAT] j2 pinned at 100.0 of 50.0 N*m for 6s (blocked by contact, or payload too heavy)"
+  ],
+  [
+   1794410169.277,
+   ""
+  ],
+  [
+   1794410170.277,
+   "WARN  [EFFORT_SAT] j2 pinned at 100.0 of 50.0 N*m for 7s (blocked by contact, or payload too heavy)"
+  ],
+  [
+   1794410170.277,
+   ""
+  ],
+  [
+   1794410171.297,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410171.297,
+   ""
+  ],
+  [
+   1794410172.301,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410172.301,
+   ""
+  ],
+  [
+   1794410173.301,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410173.301,
+   ""
+  ],
+  [
+   1794410174.301,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410174.301,
+   ""
+  ],
+  [
+   1794410175.302,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410175.302,
+   ""
+  ],
+  [
+   1794410176.317,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410176.317,
+   ""
+  ],
+  [
+   1794410177.317,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410177.317,
+   ""
+  ],
+  [
+   1794410178.337,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410178.337,
+   ""
+  ],
+  [
+   1794410179.357,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410179.357,
+   ""
+  ],
+  [
+   1794410180.377,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410180.377,
+   ""
+  ],
+  [
+   1794410181.377,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410181.377,
+   ""
+  ],
+  [
+   1794410182.397,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410182.397,
+   ""
+  ],
+  [
+   1794410183.399,
+   "WARN  [LIMIT_VEL] j1 moving at 10.00 rad/s, limit 3.00"
+  ],
+  [
+   1794410183.399,
+   ""
+  ],
+  [
+   1794410184.417,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410184.417,
+   ""
+  ],
+  [
+   1794410185.417,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410185.417,
+   ""
+  ],
+  [
+   1794410186.417,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410186.417,
+   ""
+  ],
+  [
+   1794410187.417,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410187.417,
+   ""
+  ],
+  [
+   1794410188.437,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410188.437,
+   ""
+  ],
+  [
+   1794410189.437,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410189.437,
+   ""
+  ],
+  [
+   1794410190.457,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410190.457,
+   ""
+  ],
+  [
+   1794410191.503,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410191.503,
+   ""
+  ],
+  [
+   1794410192.702,
+   "OK    arm looks healthy"
+  ],
+  [
+   1794410192.702,
+   ""
+  ],
+  [
+   1794410193.703,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 2.9s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410193.703,
+   ""
+  ],
+  [
+   1794410194.902,
+   "ERROR [JOINT_STATES_STALE] /joint_states silent for 4.1s (controller manager or joint_state_broadcaster is down)"
+  ],
+  [
+   1794410194.903,
+   ""
+  ]
+ ]
+}

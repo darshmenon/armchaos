@@ -1,0 +1,11 @@
+fault                                        armdoc codes (seconds to first report)               recovered
+freeze                                       JOINT_STATES_STALE (+2.2s)                           yes
+slow(hz=0.2)                                 JOINT_STATES_STALE (+2.3s)                           yes
+stutter(up=1.0, down=4.0)                    JOINT_STATES_STALE (+3.4s)                           yes
+lag(delay=3.0)                               JOINT_STATES_STALE (+2.5s)                           yes
+noise(sigma=0.02, seed=0)                    none                                                 yes
+nan(joint=elbow_joint)                       JOINT_NAN (+0.5s)                                    yes
+spoof(joint=shoulder_pan_joint, offset=7.0)  LIMIT_POS (+0.5s)                                    yes
+squeeze(joint=wrist_1_joint, effort=100.0)   EFFORT_SAT (+2.5s)                                   yes
+spike(joint=wrist_2_joint, velocity=10.0)    LIMIT_VEL (+0.5s)                                    yes
+deactivate(controller=arm_controller)        CTRL_INACTIVE (+1.6s), NO_ACTIVE_ARM_CTRL (+1.6s)    yes

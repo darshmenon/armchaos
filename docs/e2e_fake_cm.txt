@@ -1,0 +1,4 @@
+t=  4.0s START deactivate(controller=arm_controller)
+t= 14.0s STOP  deactivate(controller=arm_controller)
+fault                                        armdoc codes (seconds to first report)               recovered
+deactivate(controller=arm_controller)        CTRL_INACTIVE (+2.0s), NO_ACTIVE_ARM_CTRL (+2.0s)    yes
