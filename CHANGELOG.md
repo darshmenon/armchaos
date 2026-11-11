@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0
+- Safe shutdown: Ctrl-C and SIGTERM stop the relay and switch every deactivated controller back on (blocking, with retries) before exiting; exit code 130 / 143, or 3 if a controller could not be restored. `--restore-on-exit` (default) / `--no-restore-on-exit`.
+- `--max-duration SECONDS` (default 600): a longer scenario is refused, and a run that overshoots it is stopped and restored.
+- `expect:` per scenario step and `--expect CODE` for `inject`; `--armdoc` runs armdoc on the faulted stream and prints a pass/fail table, exiting 1 if an expected code did not fire (`--armdoc-lead` sets the healthy baseline, default 4 s).
+- `armchaos --version`, `pyproject.toml` so `pip install git+https://github.com/darshmenon/armchaos` works (colcon still builds it).
+- CI workflow: ROS-free unit tests and a pip install check, plus a ROS Humble job that runs the restore check and an armdoc end-to-end scenario.
+- New tests: `test/test_report.py` (ROS-free), `test/restore_check.py` (against `test/fake_cm.py`), `test/scenario_expect.yaml`.
+
 ## 0.1.0
 - First version: break a ros2_control arm on purpose, then restore it.
 - Stream faults (armchaos relays `/joint_states` to a second topic through the active faults): `freeze`, `slow`, `stutter`, `lag`, `noise`, `nan`, `spoof`, `squeeze`, `spike`.
