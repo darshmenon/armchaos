@@ -1,0 +1,24 @@
+plan: t=2s for 6s  freeze  expect: JOINT_STATES_STALE
+plan: t=12s for 5s  nan(joint=j1)  expect: JOINT_NAN
+plan: t=21s for 7s  deactivate(controller=arm_controller)  expect: CTRL_INACTIVE, NO_ACTIVE_ARM_CTRL
+plan: t=32s for 5s  noise(sigma=0.02, seed=0)
+plan: relay /joint_states_raw -> /joint_states_chaos, controllers via /controller_manager
+plan: stops after 600s at most; controllers restored on Ctrl-C/SIGTERM
+t=  2.0s START freeze
+t=  8.0s STOP  freeze
+t= 12.0s START nan(joint=j1)
+t= 17.0s STOP  nan(joint=j1)
+t= 21.0s START deactivate(controller=arm_controller)
+t= 28.0s STOP  deactivate(controller=arm_controller)
+t= 32.0s START noise(sigma=0.02, seed=0)
+t= 37.0s STOP  noise(sigma=0.02, seed=0)
+
+#  fault                                  when       expect                             armdoc said                        result
+-  -------------------------------------  ---------  ---------------------------------  ---------------------------------  ------
+1  freeze                                 t=2s +6s   JOINT_STATES_STALE                 JOINT_STATES_STALE                 PASS
+2  nan(joint=j1)                          t=12s +5s  JOINT_NAN                          JOINT_NAN                          PASS
+3  deactivate(controller=arm_controller)  t=21s +7s  CTRL_INACTIVE, NO_ACTIVE_ARM_CTRL  CTRL_INACTIVE, NO_ACTIVE_ARM_CTRL  PASS
+4  noise(sigma=0.02, seed=0)              t=32s +5s  -                                  nothing                            -
+
+3 passed, 0 failed, 1 unchecked, 0 not run
+exit=0

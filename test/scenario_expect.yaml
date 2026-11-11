@@ -1,0 +1,6 @@
+# each fault says which armdoc code must fire (expect: none = armdoc must stay quiet); run with --armdoc
+faults:
+  - {at: 2,  for: 6, fault: freeze, expect: JOINT_STATES_STALE}
+  - {at: 12, for: 5, fault: nan, joint: j1, expect: JOINT_NAN}
+  - {at: 21, for: 7, fault: deactivate, controller: arm_controller, expect: [CTRL_INACTIVE, NO_ACTIVE_ARM_CTRL]}
+  - {at: 32, for: 5, fault: noise, sigma: 0.02}      # no expect: newer armdoc names it NOISY_JOINTS, older ones stay silent
