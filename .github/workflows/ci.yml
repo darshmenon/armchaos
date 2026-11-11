@@ -1,0 +1,44 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  unit:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.10'}
+      - name: tests (no ROS needed)
+        run: pip install pytest pyyaml && python -m pytest -q test
+      - name: pip install works and the CLI runs
+        run: |
+          python -m venv /tmp/venv
+          /tmp/venv/bin/pip install .
+          /tmp/venv/bin/armchaos --version
+          /tmp/venv/bin/armchaos list
+          /tmp/venv/bin/armchaos run test/scenario_expect.yaml --dry-run
+  ros:
+    runs-on: ubuntu-22.04
+    container: ros:humble-ros-base
+    steps:
+      - uses: actions/checkout@v4
+      - name: install deps
+        shell: bash
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq git python3-yaml python3-pytest ros-humble-controller-manager-msgs \
+            ros-humble-control-msgs ros-humble-diagnostic-msgs
+      - name: controllers come back on Ctrl-C, SIGTERM and the max-duration guard
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          export ROS_DOMAIN_ID=87 PYTHONPATH=$PWD:$PYTHONPATH
+          python3 test/fake_cm.py & sleep 2
+          python3 test/restore_check.py
+      - name: armdoc names every fault (the run fails if an expect is missed)
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          git clone --depth 1 --branch v0.2.0 https://github.com/darshmenon/armdoc "$RUNNER_TEMP/armdoc"
+          export ROS_DOMAIN_ID=88 PYTHONPATH=$PWD:$RUNNER_TEMP/armdoc:$PYTHONPATH
+          python3 test/fake_cm.py & sleep 2
+          python3 -m armchaos.cli run test/scenario_expect.yaml --armdoc --source /joint_states_raw
