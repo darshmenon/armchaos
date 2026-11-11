@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>armchaos</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <description>Break a ros2_control arm on purpose (frozen, late, noisy, NaN or spoofed joint states, a deactivated controller) and restore it.</description>
   <maintainer email="darshmenon02@gmail.com">darshmenon</maintainer>
   <license>Apache-2.0</license>
