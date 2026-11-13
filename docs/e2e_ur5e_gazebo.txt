@@ -1,0 +1,48 @@
+plan: t=4s for 8s  freeze
+plan: t=18s for 8s  slow(hz=0.2)
+plan: t=32s for 8s  stutter(up=1.0, down=4.0)
+plan: t=46s for 8s  lag(delay=3.0)
+plan: t=60s for 8s  noise(sigma=0.02, seed=0)
+plan: t=74s for 8s  nan(joint=elbow_joint)
+plan: t=88s for 8s  spoof(joint=shoulder_pan_joint, offset=7.0)
+plan: t=102s for 8s  squeeze(joint=wrist_1_joint, effort=100.0)
+plan: t=116s for 8s  spike(joint=wrist_2_joint, velocity=10.0)
+plan: t=130s for 10s  deactivate(controller=arm_controller)
+plan: relay /joint_states -> /joint_states_chaos, controllers via /controller_manager
+plan: stops after 600s at most; controllers restored on Ctrl-C/SIGTERM
+t=  4.0s START freeze
+t= 12.0s STOP  freeze
+t= 18.0s START slow(hz=0.2)
+t= 26.0s STOP  slow(hz=0.2)
+t= 32.0s START stutter(up=1.0, down=4.0)
+t= 40.0s STOP  stutter(up=1.0, down=4.0)
+t= 46.0s START lag(delay=3.0)
+t= 54.0s STOP  lag(delay=3.0)
+t= 60.0s START noise(sigma=0.02, seed=0)
+t= 68.0s STOP  noise(sigma=0.02, seed=0)
+t= 74.0s START nan(joint=elbow_joint)
+t= 82.0s STOP  nan(joint=elbow_joint)
+t= 88.0s START spoof(joint=shoulder_pan_joint, offset=7.0)
+t= 96.0s STOP  spoof(joint=shoulder_pan_joint, offset=7.0)
+t=102.0s START squeeze(joint=wrist_1_joint, effort=100.0)
+t=110.0s STOP  squeeze(joint=wrist_1_joint, effort=100.0)
+t=116.0s START spike(joint=wrist_2_joint, velocity=10.0)
+t=124.0s STOP  spike(joint=wrist_2_joint, velocity=10.0)
+t=130.0s START deactivate(controller=arm_controller)
+t=140.0s STOP  deactivate(controller=arm_controller)
+
+#   fault                                        when         expect  armdoc said                        result
+--  -------------------------------------------  -----------  ------  ---------------------------------  ------
+1   freeze                                       t=4s +8s     -       JOINT_STATES_STALE                 -
+2   slow(hz=0.2)                                 t=18s +8s    -       JOINT_STATES_STALE                 -
+3   stutter(up=1.0, down=4.0)                    t=32s +8s    -       JOINT_STATES_STALE                 -
+4   lag(delay=3.0)                               t=46s +8s    -       JOINT_STATES_STALE                 -
+5   noise(sigma=0.02, seed=0)                    t=60s +8s    -       NOISY_JOINTS                       -
+6   nan(joint=elbow_joint)                       t=74s +8s    -       JOINT_NAN                          -
+7   spoof(joint=shoulder_pan_joint, offset=7.0)  t=88s +8s    -       LIMIT_POS, NOISY_JOINTS            -
+8   squeeze(joint=wrist_1_joint, effort=100.0)   t=102s +8s   -       EFFORT_SAT                         -
+9   spike(joint=wrist_2_joint, velocity=10.0)    t=116s +8s   -       LIMIT_VEL                          -
+10  deactivate(controller=arm_controller)        t=130s +10s  -       CTRL_INACTIVE, NO_ACTIVE_ARM_CTRL  -
+
+0 passed, 0 failed, 10 unchecked, 0 not run
+exit=0

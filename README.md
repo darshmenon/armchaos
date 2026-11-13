@@ -1,5 +1,7 @@
 # armchaos
 
+[![CI](https://github.com/darshmenon/armchaos/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/darshmenon/armchaos/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/darshmenon/armchaos)](https://github.com/darshmenon/armchaos/releases) [![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE) ![ROS 2](https://img.shields.io/badge/ROS_2-Humble-blue)
+
 **Does your arm stack notice when something breaks?** Break a ros2_control arm on purpose (frozen, late, noisy, NaN or spoofed joint states, a deactivated controller), then restore it. Pair it with [armdoc](https://github.com/darshmenon/armdoc) to check the doctor names each fault.
 
 ## Quick start
@@ -117,6 +119,7 @@ python3 test/e2e.py test/scenario_stream.yaml --source /joint_states_raw
 
 ## Limits
 
+- Verified against `armdoc` on a UR3 and a UR5e in Gazebo (all ten faults, `docs/e2e_ur5e_gazebo.txt` for the UR5e run) and on a fake arm. No real robot and no non-UR arm yet.
 - Joint-state faults only, plus one controller fault. No TF, camera or force-sensor faults yet.
 - Stream faults apply to the relayed topic, so they need a remap in the stack under test.
 - YAML reads `on`, `off`, `yes` and `no` as booleans, so `stutter` uses `up` and `down`; a boolean key gets a clear error.
