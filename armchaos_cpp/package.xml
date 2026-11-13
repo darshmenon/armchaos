@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>armchaos_cpp</name>
+  <version>0.2.0</version>
+  <description>C++ joint-state relay for armchaos: the stream faults without Python in the loop, for running next to a fast controller.</description>
+  <maintainer email="darshmenon02@gmail.com">darshmenon</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

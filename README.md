@@ -98,6 +98,17 @@ Two honest notes on those rows:
 - `lag` is reported as stale, not as late: the first `delay` seconds are silent, and after that the stream flows normally, only shifted. armdoc has no check for a constant delay.
 - `noise` is a real gap in armdoc, not a bug in armchaos. Small position noise does not break a limit, so nothing fires.
 
+## C++ relay (low overhead)
+
+`armchaos_cpp` is a sibling colcon package with the same stream faults in C++, so the relay itself adds little CPU and memory next to a fast controller:
+
+```bash
+colcon build --packages-select armchaos_cpp && source install/setup.bash
+ros2 run armchaos_cpp armchaos_fast --ros-args -p "faults:=['2,6,freeze','10,5,spoof,joint=shoulder_pan_joint,offset=7']"
+```
+
+Each fault is `"at,for,name[,key=value...]"` with the same parameters and defaults as the Python tool; other parameters are `source`, `out`, `lead`, `linger` and `max_duration` (hard guard). It does not do `deactivate`: use the Python `armchaos` for controller faults, since it owns the restore-on-exit safety. On a 500 Hz stream (one 15 s run each, busy machine) the C++ relay used 4.6% of a core and 22 MB, the Python relay 18.2% and 60 MB, with median latency 235 us against 326 us (the latency includes a Python publisher and subscriber, so read the CPU and memory gap, not the latency gap). A test replays the same event sequences through both and requires identical output.
+
 ## What was and wasn't tested
 
 - **Fake arm** (`test/fake_arm_raw.py`, armdoc's fake graph on a remapped topic): all nine stream faults. `deactivate` ran against `test/fake_cm.py`, a small stateful fake controller manager, because the fake arm's controller list is fixed.

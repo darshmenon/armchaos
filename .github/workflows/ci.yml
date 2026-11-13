@@ -26,7 +26,7 @@ jobs:
         run: |
           apt-get update -qq
           apt-get install -y -qq git python3-yaml python3-pytest ros-humble-controller-manager-msgs \
-            ros-humble-control-msgs ros-humble-diagnostic-msgs
+            ros-humble-control-msgs ros-humble-diagnostic-msgs python3-colcon-common-extensions build-essential cmake
       - name: controllers come back on Ctrl-C, SIGTERM and the max-duration guard
         shell: bash
         run: |
@@ -42,3 +42,15 @@ jobs:
           export ROS_DOMAIN_ID=88 PYTHONPATH=$PWD:$RUNNER_TEMP/armdoc:$PYTHONPATH
           python3 test/fake_cm.py & sleep 2
           python3 -m armchaos.cli run test/scenario_expect.yaml --armdoc --source /joint_states_raw
+      - name: the C++ relay builds and applies a freeze
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          mkdir -p /tmp/ws/src && ln -s $PWD/armchaos_cpp /tmp/ws/src/armchaos_cpp
+          (cd /tmp/ws && colcon build --packages-select armchaos_cpp) && source /tmp/ws/install/setup.bash
+          export ROS_DOMAIN_ID=89
+          python3 test/fake_cm.py & cm=$!; sleep 2
+          python3 test/cpp_relay_check.py & chk=$!; sleep 0.5
+          ros2 run armchaos_cpp armchaos_fast --ros-args -p "faults:=['3,3,freeze']" -p linger:=3.0
+          wait $chk; code=$?; kill $cm; exit $code
+

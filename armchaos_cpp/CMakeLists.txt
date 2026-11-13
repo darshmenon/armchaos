@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.8)
+project(armchaos_cpp)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+
+add_executable(armchaos_fast src/armchaos_fast_node.cpp)
+target_include_directories(armchaos_fast PRIVATE include)
+ament_target_dependencies(armchaos_fast rclcpp sensor_msgs)
+
+add_executable(armchaos_core_cli src/core_cli.cpp)
+target_include_directories(armchaos_core_cli PRIVATE include)
+
+install(TARGETS armchaos_fast armchaos_core_cli DESTINATION lib/${PROJECT_NAME})
+install(DIRECTORY include/ DESTINATION include)
+ament_package()
