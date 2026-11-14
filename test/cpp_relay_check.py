@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Live check of the C++ relay: run next to test/fake_cm.py (publishes /joint_states_raw), with
-   ros2 run armchaos_cpp armchaos_fast --ros-args -p "faults:=['3,3,freeze']" -p linger:=2.0
+   ros2 run armchaos_cpp armchaos_fast --ros-args -p source:=/joint_states_raw -p "faults:=['3,3,freeze']" -p linger:=2.0
 Counts /joint_states_chaos messages per second and requires: flowing before the fault, silent inside it, flowing after."""
 import sys
 import time

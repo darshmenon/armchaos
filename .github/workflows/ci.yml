@@ -51,6 +51,6 @@ jobs:
           export ROS_DOMAIN_ID=89
           python3 test/fake_cm.py & cm=$!; sleep 2
           python3 test/cpp_relay_check.py & chk=$!; sleep 0.5
-          ros2 run armchaos_cpp armchaos_fast --ros-args -p "faults:=['3,3,freeze']" -p linger:=3.0
+          ros2 run armchaos_cpp armchaos_fast --ros-args -p source:=/joint_states_raw -p "faults:=['3,3,freeze']" -p linger:=3.0
           wait $chk; code=$?; kill $cm; exit $code
 

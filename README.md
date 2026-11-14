@@ -4,6 +4,10 @@
 
 **Does your arm stack notice when something breaks?** Break a ros2_control arm on purpose (frozen, late, noisy, NaN or spoofed joint states, a deactivated controller), then restore it. Pair it with [armdoc](https://github.com/darshmenon/armdoc) to check the doctor names each fault.
 
+![UR5e in MuJoCo: armchaos faults on the joint-state stream, armdoc's verdict underneath](docs/demo_ur5e_faults.gif)
+
+*A real UR5e model (MuJoCo Menagerie) moves through a loop. The five faults reshape the joint-state stream with the real armchaos fault models; the arm drawn is the arm as the stack sees it, and the bar underneath is what the real armdoc checks say. Simulated time, no ROS: `PYTHONPATH=.:../armdoc python3 examples/make_demo_gif.py`. A model, not a real robot.*
+
 ## Quick start
 
 ```bash
@@ -107,7 +111,7 @@ colcon build --packages-select armchaos_cpp && source install/setup.bash
 ros2 run armchaos_cpp armchaos_fast --ros-args -p "faults:=['2,6,freeze','10,5,spoof,joint=shoulder_pan_joint,offset=7']"
 ```
 
-Each fault is `"at,for,name[,key=value...]"` with the same parameters and defaults as the Python tool; other parameters are `source`, `out`, `lead`, `linger` and `max_duration` (hard guard). It does not do `deactivate`: use the Python `armchaos` for controller faults, since it owns the restore-on-exit safety. On a 500 Hz stream (one 15 s run each, busy machine) the C++ relay used 4.6% of a core and 22 MB, the Python relay 18.2% and 60 MB, with median latency 235 us against 326 us (the latency includes a Python publisher and subscriber, so read the CPU and memory gap, not the latency gap). A test replays the same event sequences through both and requires identical output.
+Each fault is `"at,for,name[,key=value...]"` with the same parameters and defaults as the Python tool; other parameters are `source` (default `/joint_states`, like the Python tool; use `-p source:=/joint_states_raw` for the fake arm), `out` (default `/joint_states_chaos`), `lead`, `linger` and `max_duration` (hard guard). It does not do `deactivate`: use the Python `armchaos` for controller faults, since it owns the restore-on-exit safety. On a 500 Hz stream (one 15 s run each, busy machine) the C++ relay used 4.6% of a core and 22 MB, the Python relay 18.2% and 60 MB, with median latency 235 us against 326 us (the latency includes a Python publisher and subscriber, so read the CPU and memory gap, not the latency gap). A test replays the same event sequences through both and requires identical output.
 
 ## What was and wasn't tested
 

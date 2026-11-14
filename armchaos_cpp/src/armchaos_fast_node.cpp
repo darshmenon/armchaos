@@ -1,6 +1,6 @@
 // armchaos_fast: relay /joint_states_raw -> /joint_states_chaos through the stream faults, in C++.
 // Parameters:
-//   source, out        topics (defaults /joint_states_raw, /joint_states_chaos)
+//   source, out        topics (defaults /joint_states, /joint_states_chaos: the same as the Python armchaos)
 //   faults             string array, one entry per fault: "at,for,name[,key=value...]", e.g. "2,6,freeze" or
 //                      "1,5,spoof,joint=shoulder_pan_joint,offset=7"
 //   lead               healthy seconds before scenario time 0 (default 0)
@@ -28,7 +28,7 @@ static std::vector<std::string> split(const std::string & s, char d) {
 class Relay : public rclcpp::Node {
  public:
   Relay() : Node("armchaos_fast") {
-    auto source = declare_parameter<std::string>("source", "/joint_states_raw");
+    auto source = declare_parameter<std::string>("source", "/joint_states");
     auto out = declare_parameter<std::string>("out", "/joint_states_chaos");
     auto faults = declare_parameter<std::vector<std::string>>("faults", std::vector<std::string>{});
     lead_ = declare_parameter<double>("lead", 0.0);
