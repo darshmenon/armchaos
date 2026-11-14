@@ -117,9 +117,12 @@ Each fault is `"at,for,name[,key=value...]"` with the same parameters and defaul
 - Unit tests (`pytest test`) cover the fault models and the scheduler without ROS.
 - **Safety (0.2.0):** `test/restore_check.py` runs against `test/fake_cm.py`, a fake controller manager, and checks five cases: SIGINT and SIGTERM restore the controller and exit 130 / 143, the `--max-duration` guard stops a run and restores, `--no-restore-on-exit` leaves it off, and a normal run restores. All five pass. This was not run against the real `ros2_control` controller manager (a Gazebo run was out of scope), so the switching is only verified against the fake one.
 - **`--armdoc` summary (0.2.0):** run on the fake graph with armdoc v0.2.0: three expectations passed. With a newer armdoc that has a noise check, a step with `expect: none` failed as it should (exit 1). `pip install .` was tested in a clean venv and `colcon build` still works.
+- **Two arms that are not URs, on the real ros2_control controller manager** (Humble, mock hardware from `moveit_resources_*_moveit_config`, started headless with `test/fanuc_headless.launch.py` and `test/panda_headless.launch.py`): **FANUC** (6 joints, `fanuc_controller`; `test/scenario_fanuc.yaml`, output `docs/e2e_fanuc_ros2_control.txt`) and **Franka Panda** (7 joints, `panda_arm_controller` plus a separate gripper controller; `test/scenario_panda.yaml`, output `docs/e2e_panda_ros2_control.txt`). Every fault was named by the expected armdoc code on both (10 of 10), and the arm controller was active again afterwards. Differences worth knowing: the Fanuc URDF has effort limit 0 and the mock hardware reports no effort, so `squeeze` is expected to go unnoticed there (the scenario says `expect: none`); the Panda has effort limits, so `squeeze` raises `EFFORT_SAT`. Mock hardware, not a real arm.
 - **Not tested:** ROS 2 Jazzy, MoveIt, a real robot, two arms at once, the GitHub Actions workflow itself (only its commands, locally).
 
 ## Reproduce
+
+For a ros2_control stack without a simulator: `ros2 launch test/panda_headless.launch.py` (needs `ros-humble-moveit-resources-panda-moveit-config`), then `armchaos run test/scenario_panda.yaml --armdoc --source /joint_states`. If the controller manager says it cannot find the `mock_components` library, run the launch from a clean shell with only `/opt/ros/humble/setup.bash` sourced: stale entries in `AMENT_PREFIX_PATH` from old workspaces broke the plugin lookup here.
 
 ```bash
 python3 test/fake_arm_raw.py &                     # or a simulator publishing /joint_states_raw

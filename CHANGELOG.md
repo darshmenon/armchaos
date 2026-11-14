@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Verified on two non-UR arms with the real ros2_control controller manager (mock hardware): FANUC (6 joints) and Franka Panda (7 joints, separate gripper controller). 10 of 10 faults named by the expected armdoc code on each. Added `test/scenario_fanuc.yaml`, `test/scenario_panda.yaml`, headless launch files and the recorded runs under `docs/`.
 - New `armchaos_cpp` colcon package (in this repo): `ros2 run armchaos_cpp armchaos_fast` is a C++ relay with the nine stream faults (`freeze`, `slow`, `stutter`, `lag`, `noise`, `nan`, `spoof`, `squeeze`, `spike`) and the same scheduling as the Python relay. On a 500 Hz stream (one 15 s run each, busy machine) it used 4.6% of a core and 22 MB against 18.2% and 60 MB for the Python relay; median relay latency 235 us against 326 us. `deactivate` (controller_manager calls and the restore-on-exit safety) stays Python only.
 - `test/test_cpp_equivalence.py` replays identical event sequences (11 fault setups including overlapping and back-to-back faults, two seeds each) through the Python `Engine` and the C++ engine and requires bit-identical samples; `noise` is checked for determinism per seed and for the right spread, since the two languages use different random generators.
 - `test/cpp_relay_check.py` and a CI step run the C++ relay against `fake_cm.py` and require the stream to stop during a freeze and resume after it.
